@@ -1,0 +1,27 @@
+.chartContainer {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 100%;
+}
+
+.systolic {
+  text-align: center;
+}
+
+.diastolic {
+  text-align: center;
+}
+
+.systolic span {
+  color: #d81b60;
+}
+
+.diastolic span {
+  color: #5c6bc0;
+}
+
+.small {
+  font-size: 12px;
+  color: #777;
+}

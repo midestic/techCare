@@ -1,0 +1,113 @@
+.rootComp {
+  width: 100%;
+
+  padding: 5px;
+  background-color: rgb(246, 247, 248);
+}
+
+.rootDiv {
+  width: 100%;
+  /* height: auto;
+  overflow: hidden; */
+  padding: 5px;
+}
+
+.header {
+  width: 100%;
+  /* position: fixed;
+  z-index: 2; */
+}
+
+.dashDiv {
+  width: 100%;
+  /* border: 1px solid; */
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.patients {
+  width: 25%;
+  /* border: 1px solid yellow; */
+  background-color: white;
+  border-radius: 5px;
+}
+
+.displayDetails {
+  width: 73%;
+}
+
+.toggleButton {
+  display: none;
+  margin-top: 10px;
+}
+
+@media (max-width: 768px) {
+  .rootComp {
+    width: 100%;
+
+    padding: 5px;
+    background-color: rgb(246, 247, 248);
+  }
+
+  .rootDiv {
+    width: 100%;
+    /* height: auto;
+    overflow: hidden; */
+    padding: 5px;
+  }
+
+  .header {
+    width: 100%;
+    /* position: fixed;
+    z-index: 2; */
+  }
+
+  .dashDiv {
+    width: 100%;
+    /* border: 1px solid; */
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .patients {
+    width: 25%;
+    /* border: 1px solid yellow; */
+    background-color: white;
+    border-radius: 5px;
+  }
+
+  .displayDetails {
+    width: 73%;
+  }
+
+  .toggleButton {
+    display: none;
+    margin-top: 10px;
+  }
+
+  /* toggle */
+
+  .toggleButton {
+    display: block;
+  }
+
+  .patients {
+    display: none;
+    position: absolute;
+    width: 70%;
+    z-index: 10;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .patients.show {
+    display: block;
+  }
+
+  .displayDetails {
+    width: 100%;
+  }
+}

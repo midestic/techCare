@@ -1,0 +1,159 @@
+.detailsPageComp {
+  height: 100vh;
+  overflow-y: scroll;
+  /* overflow-y: scroll;
+  overflow-x: hidden; */
+  /* margin-top: 70px; */
+}
+
+.row {
+  height: fit-content;
+  display: flex;
+  justify-content: space-around;
+}
+
+.colOne {
+  padding: 0;
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border-radius: 10px;
+  padding-bottom: 10px;
+}
+
+.chartDiv {
+  padding: 0;
+  width: 100%;
+  height: auto;
+  /* border: 1px solid pink; */
+}
+
+.colTwo {
+  height: fit-content;
+  padding-top: 20px;
+
+  background-color: white;
+  border-radius: 10px;
+}
+
+.chartDivTwo {
+  display: flex;
+
+  justify-content: space-between;
+  margin-top: 15px;
+}
+
+.chartDivTwo div {
+  /* border: 1px solid; */
+  padding: 30px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 10px;
+}
+
+.secondRow {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: space-around;
+  transform: translateY(20px);
+  margin: 0;
+}
+
+.diagList {
+  padding: 0;
+  background-color: white;
+  transform: translateY(-30px);
+  border-radius: 10px;
+}
+
+.labList {
+  background-color: white;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  border-radius: 10px;
+}
+
+@media (max-width: 768px) {
+  .detailsPageComp {
+    height: 100vh;
+    overflow-y: scroll;
+  }
+
+  .row {
+    height: fit-content;
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .colOne {
+    padding: 0;
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 10px;
+    padding-bottom: 10px;
+  }
+
+  .chartDiv {
+    padding: 0;
+    width: 100%;
+    height: auto;
+    /* border: 1px solid pink; */
+  }
+
+  .colTwo {
+    height: auto;
+    padding-top: 20px;
+    transform: translateY(20px);
+    background-color: white;
+    border-radius: 10px;
+  }
+
+  .chartDivTwo {
+    display: flex;
+    height: auto;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 15px;
+  }
+
+  .chartDivTwo div {
+    /* border: 1px solid; */
+    /* padding: 30px; */
+    text-align: center;
+    margin-top: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 10px;
+  }
+
+  .secondRow {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: space-around;
+    transform: translateY(100px);
+    margin: 0;
+  }
+
+  .diagList {
+    padding: 0;
+    background-color: white;
+    transform: translateY(-30px);
+    border-radius: 10px;
+  }
+
+  .labList {
+    background-color: white;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    border-radius: 10px;
+  }
+}

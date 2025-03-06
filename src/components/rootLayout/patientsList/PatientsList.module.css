@@ -1,0 +1,122 @@
+.patientListComp {
+  width: 100%;
+  /* margin-top: 30%; */
+  height: 100vh;
+  overflow-y: scroll;
+  height: 100vh;
+  /* overflow-y: scroll; */
+}
+
+.patientListComp small {
+  text-decoration: none;
+  align-self: center;
+  color: black;
+}
+
+.heading {
+  display: flex;
+  justify-content: space-between;
+}
+
+.names {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.eachName {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  justify-items: center;
+  padding-left: 5px;
+  padding-right: 5px;
+  /* border: 1px solid; */
+}
+
+.eachDiv {
+  width: 70%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  justify-items: center;
+  padding: 5px;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-self: center;
+}
+
+.change {
+  background-color: rgb(216, 252, 247);
+}
+
+.lists {
+  display: flex;
+  flex-direction: column;
+}
+
+.secondList {
+  margin-top: 10px;
+}
+
+@media (max-width: 768px) {
+  .patientListComp {
+    width: 100%;
+    overflow-y: scroll;
+    height: 100vh;
+    text-decoration: none;
+  }
+
+  .patientListComp small {
+    text-decoration: none;
+    align-self: center;
+  }
+
+  .heading {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .names {
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  .eachName {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    justify-items: center;
+    padding-left: 5px;
+    padding-right: 5px;
+    /* border: 1px solid; */
+  }
+
+  .eachDiv {
+    width: 70%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    justify-items: center;
+    padding: 5px;
+  }
+
+  .details {
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-self: center;
+  }
+
+  .change {
+    background-color: rgb(216, 252, 247);
+  }
+
+  .lists {
+    display: flex;
+    flex-direction: column;
+  }
+}
