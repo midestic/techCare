@@ -60,7 +60,7 @@ export default function PatientsList() {
           <div className={`${styles.secondList}`}>
             {otherPatients &&
               otherPatients.map((other: any, index: any) => (
-                <NavLink to="infopage">
+                <a>
                   <div
                     key={index}
                     className={`${styles.eachName} ${
@@ -81,7 +81,7 @@ export default function PatientsList() {
                       <img src={details} alt="details" />
                     </div>
                   </div>
-                </NavLink>
+                </a>
               ))}
           </div>
         </div>
