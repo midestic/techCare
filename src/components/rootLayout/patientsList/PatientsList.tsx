@@ -60,28 +60,26 @@ export default function PatientsList() {
           <div className={`${styles.secondList}`}>
             {otherPatients &&
               otherPatients.map((other: any, index: any) => (
-                <a>
-                  <div
-                    key={index}
-                    className={`${styles.eachName} ${
-                      backgroundColor === index ? styles.change : ""
-                    }`}
-                    onClick={() => setBackgroundColor(index)}
-                  >
-                    <div className={`${styles.eachDiv} `}>
-                      <img src={other.profile_picture} alt={other.name} />
+                <div
+                  key={index}
+                  className={`${styles.eachName} ${
+                    backgroundColor === index ? styles.change : ""
+                  }`}
+                  onClick={() => setBackgroundColor(index)}
+                >
+                  <div className={`${styles.eachDiv} `}>
+                    <img src={other.profile_picture} alt={other.name} />
+                    <small>
+                      <b>{other.name}</b> <br />
                       <small>
-                        <b>{other.name}</b> <br />
-                        <small>
-                          {other.gender} {other.age}
-                        </small>
+                        {other.gender} {other.age}
                       </small>
-                    </div>
-                    <div className={`${styles.details}  `}>
-                      <img src={details} alt="details" />
-                    </div>
+                    </small>
                   </div>
-                </a>
+                  <div className={`${styles.details}  `}>
+                    <img src={details} alt="details" />
+                  </div>
+                </div>
               ))}
           </div>
         </div>
