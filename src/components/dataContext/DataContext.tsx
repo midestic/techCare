@@ -4,7 +4,6 @@ type ContextType = {
   data: any;
   loading: boolean;
   error: string | null;
-  otherPatients: any;
   filteredData: any;
 };
 
@@ -21,7 +20,6 @@ export default function DataContextFunction({
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
   const [filteredData, setFilteredData] = useState<any>([]);
-  const [otherPatients, setOtherPatients] = useState<any>([]);
 
   const fetchData = async () => {
     setLoading(true);
@@ -44,9 +42,6 @@ export default function DataContextFunction({
       const result = await response.json();
       setData(result);
 
-      setOtherPatients(
-        result.filter((people: any) => people.name !== "Jessica Taylor")
-      );
       setFilteredData(
         result.filter((filtered: any) => filtered.name === "Jessica Taylor")
       );
@@ -67,14 +62,10 @@ export default function DataContextFunction({
 
   useEffect(() => {
     console.log(data);
-    console.log(filteredData);
-    console.log(typeof filteredData);
   }, [data]);
 
   return (
-    <fetchContext.Provider
-      value={{ data, loading, error, filteredData, otherPatients }}
-    >
+    <fetchContext.Provider value={{ data, loading, error, filteredData }}>
       {children}
     </fetchContext.Provider>
   );

@@ -5,26 +5,39 @@ import { fetchContext } from "../dataContext/DataContext";
 import ProfileInfo from "../profileInfo/ProfileInfo";
 import DiagList from "../diagList/DiagList";
 import LabResults from "../labResults/LabResults";
+import { useParams } from "react-router-dom";
 
-let resp = "./images/respiratory-rate.svg";
-let temp = "./images/temperature.svg";
-let bpm = "./images/HeartBPM.svg";
+let resp = "/images/respiratory-rate.svg";
+let temp = "/images/temperature.svg";
+let bpm = "/images/HeartBPM.svg";
 
 export default function DetailsPage() {
+  let { name } = useParams();
   let context = useContext(fetchContext);
 
-  if (!context) {
-    return <h1>data being fetched..........</h1>;
+  if (!context?.data) {
+    return <h1>Data is being fetched...</h1>;
   }
 
-  let { error, loading, filteredData } = context;
+  let { error, loading, data } = context;
+
+  console.log(data);
 
   if (error) {
     return <strong>There is an error</strong>;
   }
 
   if (loading) {
-    return <div>LOADING.......</div>;
+    return <div>Loading...</div>;
+  }
+
+  let filteredResults = data.find(
+    (person: any) =>
+      person.name.trim().toLowerCase() === name?.trim().toLowerCase()
+  );
+
+  if (!filteredResults) {
+    return <h1>No data found for {name}</h1>;
   }
 
   return (
@@ -34,71 +47,66 @@ export default function DetailsPage() {
       <div className={`${styles.row} row `}>
         <div className={`${styles.colOne} col-lg-7 col-sm-12`}>
           <div className={`${styles.chartDiv}`}>
-            <BloodPressureChart />
+            <BloodPressureChart filteredResults={filteredResults} />
           </div>
 
-          {/* below line chart */}
-
-          <div className={`${styles.chartDivTwo}  `}>
+          {/* Below Line Chart */}
+          <div className={`${styles.chartDivTwo}`}>
             <div style={{ backgroundColor: "#e0f3fa" }}>
               <img src={resp} alt="" />
-
-              <p>respiratory Rate</p>
-
+              <p>Respiratory Rate</p>
               <h2>
-                {filteredData &&
-                  filteredData[0].diagnosis_history[0].respiratory_rate
-                    .value}{" "}
+                {filteredResults.diagnosis_history[0]?.heart_rate?.value ||
+                  "N/A"}{" "}
                 bpm
               </h2>
               <small>
-                {filteredData &&
-                  filteredData[0].diagnosis_history[0].respiratory_rate
-                    .levels}{" "}
+                {filteredResults.diagnosis_history[0]?.heart_rate?.levels ||
+                  "N/A"}
               </small>
             </div>
             <div style={{ backgroundColor: "#ffe6e9" }}>
               <img src={temp} alt="" />
               <p>Temperature</p>
               <h2>
-                {filteredData &&
-                  filteredData[0].diagnosis_history[0].temperature.value}
+                {filteredResults.diagnosis_history[0]?.temperature?.value ||
+                  "N/A"}{" "}
                 F
               </h2>
               <small>
-                {filteredData &&
-                  filteredData[0].diagnosis_history[0].temperature.levels}
+                {filteredResults.diagnosis_history[0].temperature?.levels ||
+                  "N/A"}
               </small>
             </div>
             <div style={{ backgroundColor: "#ffe6e9" }}>
               <img src={bpm} alt="" />
               <p>Heart Rate</p>
               <h2>
-                {filteredData &&
-                  filteredData[0].diagnosis_history[0].heart_rate.value}{" "}
+                {filteredResults.diagnosis_history[0].heart_rate?.value ||
+                  "N/A"}{" "}
                 bpm
               </h2>
               <small>
-                {filteredData &&
-                  filteredData[0].diagnosis_history[0].heart_rate.levels}{" "}
+                {filteredResults.diagnosis_history[0].heart_rate?.levels ||
+                  "N/A"}
               </small>
             </div>
           </div>
         </div>
 
-        {/* jessica profile picture right side div */}
-        <div className={`${styles.colTwo}  container col-lg-4 col-sm-12`}>
-          <ProfileInfo />
+        {/* Profile Info */}
+        <div className={`${styles.colTwo} container col-lg-4 col-sm-12`}>
+          <ProfileInfo filteredResults={filteredResults} />
         </div>
       </div>
-      {/* second row */}
 
-      <div className={`${styles.secondRow} row  `}>
-        <div className={`${styles.diagList}  col-lg-7 col-sm-12  `}>
-          <DiagList />
+      {/* Second Row */}
+      <div className={`${styles.secondRow} row`}>
+        <div className={`${styles.diagList} col-lg-7 col-sm-12`}>
+          <DiagList filteredResults={filteredResults} />
         </div>
-        <div className={`${styles.labList} col-lg-4 col-sm-12 `}>
-          <LabResults />
+        <div className={`${styles.labList} col-lg-4 col-sm-12`}>
+          <LabResults filteredResults={filteredResults} />
         </div>
       </div>
     </div>

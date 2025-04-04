@@ -11,7 +11,7 @@ import DataContextFunction from "./components/dataContext/DataContext";
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<RootLayout />}>
-      <Route path="infopage" element={<DetailsPage />} />
+      <Route path="infopage/:name" element={<DetailsPage />} />{" "}
     </Route>
   )
 );

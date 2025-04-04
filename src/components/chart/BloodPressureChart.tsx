@@ -1,3 +1,7 @@
+type ChartType = {
+  filteredResults: any;
+};
+
 import {
   LineChart,
   Line,
@@ -20,7 +24,7 @@ const data = [
   { month: "Mar, 2024", systolic: 160, diastolic: 78 },
 ];
 
-export default function BloodPressureChart() {
+export default function BloodPressureChart({ filteredResults }: ChartType) {
   return (
     <div className={`card p-4 ${styles.chartContainer}`}>
       <div className="d-flex justify-content-between align-items-center mb-3">
@@ -55,12 +59,21 @@ export default function BloodPressureChart() {
       </ResponsiveContainer>
       <div className="mt-4 d-flex justify-content-between">
         <div className={styles.systolic}>
-          <span className="fw-bold fs-4">160</span>
-          <p className="small">Higher than Average</p>
+          <span className="fw-bold fs-4">
+            {" "}
+            {filteredResults.diagnosis_history[0]?.temperature?.value || "N/A"}
+          </span>
+          <p className="small">
+            {filteredResults.diagnosis_history[0]?.temperature?.levels || "N/A"}
+          </p>
         </div>
         <div className={styles.diastolic}>
-          <span className="fw-bold fs-4">78</span>
-          <p className="small">Lower than Average</p>
+          <span className="fw-bold fs-4">
+            {filteredResults.diagnosis_history[0]?.heart_rate?.value || "N/A"}
+          </span>
+          <p className="small">
+            {filteredResults.diagnosis_history[0]?.heart_rate?.levels || "N/A"}
+          </p>
         </div>
       </div>
     </div>

@@ -1,14 +1,14 @@
 import styles from "./Header.module.css";
 
-let logo = "./images/TestLogo.svg";
-let homeIcon = "./images/home.svg";
-let patientsIcon = "./images/patients.svg";
-export let calenderIcon = "./images/calender.svg";
-let messageIcon = "./images/message.svg";
-let creditCardIcon = "./images/creditCard.svg";
-let settingsIcon = "./images/settings.svg";
-let moreIcon = "./images/moreIcon.svg";
-let doctor = "./images/dr.png";
+let logo = "/images/TestLogo.svg";
+let homeIcon = "/images/home.svg";
+let patientsIcon = "/images/patients.svg";
+export let calenderIcon = "/images/calender.svg";
+let messageIcon = "/images/message.svg";
+let creditCardIcon = "/images/creditCard.svg";
+let settingsIcon = "/images/settings.svg";
+let moreIcon = "/images/moreIcon.svg";
+let doctor = "/images/dr.png";
 
 export default function Header() {
   return (

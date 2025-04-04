@@ -1,25 +1,28 @@
-import { useContext } from "react";
-import { fetchContext } from "../dataContext/DataContext";
+type ProfileType = {
+  filteredResults: {
+    profile_picture: string;
+    name: string;
+    date_of_birth: string;
+    gender: string;
+    phone_number: string;
+    emergency_contact: string;
+    insurance_type: string;
+  };
+};
+
 import styles from "./ProfileInfo.module.css";
 
-const calenderIcon = "./images/calender.svg";
-const FemaleIcon = "./images/FemaleIcon.svg";
-const PhoneIcon = "./images/PhoneIcon.svg";
-const InsuranceIcon = "./images/InsuranceIcon.svg";
+const calenderIcon = "/images/calender.svg";
+const FemaleIcon = "/images/FemaleIcon.svg";
+const PhoneIcon = "/images/PhoneIcon.svg";
+const InsuranceIcon = "/images/InsuranceIcon.svg";
 
-export default function ProfileInfo() {
-  let context = useContext(fetchContext);
-  if (!context) {
-    return <div>No Context Passed.....</div>;
-  }
-
-  let { filteredData } = context;
-
+export default function ProfileInfo({ filteredResults }: ProfileType) {
   return (
     <div className={`${styles.profileComp} `}>
       <div className={`${styles.imgDiv}`}>
-        <img src={filteredData[0].profile_picture} alt="jessse" /> <br /> <br />
-        <strong>{filteredData[0].name}</strong>
+        <img src={filteredResults.profile_picture} alt="jessse" /> <br /> <br />
+        <strong>{filteredResults.name}</strong>
       </div>
 
       <div className={`${styles.info} container `}>
@@ -27,7 +30,7 @@ export default function ProfileInfo() {
           <img className={styles.calender} src={calenderIcon} alt="" />
           <small className={styles.calenderLabel}>Date Of Birth</small> <br />
           <small>
-            <b> {filteredData[0].date_of_birth}</b>
+            <b> {filteredResults.date_of_birth}</b>
           </small>
         </div>
 
@@ -35,14 +38,14 @@ export default function ProfileInfo() {
           <img src={FemaleIcon} alt="" />
           <small>Gender</small> <br />
           <small>
-            <b> {filteredData[0].gender}</b>
+            <b> {filteredResults.gender}</b>
           </small>
         </div>
         <div>
           <img src={PhoneIcon} alt="" />
           <small>Contact info</small> <br />
           <small>
-            <b> {filteredData[0].phone_number}</b>
+            <b> {filteredResults.phone_number}</b>
           </small>
         </div>
 
@@ -50,7 +53,7 @@ export default function ProfileInfo() {
           <img src={PhoneIcon} alt="" />
           <small>Emergency Contacts</small> <br />
           <small>
-            <b> {filteredData[0].emergency_contact}</b>
+            <b> {filteredResults.emergency_contact}</b>
           </small>
         </div>
 
@@ -58,7 +61,7 @@ export default function ProfileInfo() {
           <img src={InsuranceIcon} alt="" />
           <small>Emergency Contacts</small> <br />
           <small>
-            <b> {filteredData[0].insurance_type}</b>
+            <b> {filteredResults.insurance_type}</b>
           </small>
         </div>
       </div>

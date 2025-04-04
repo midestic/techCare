@@ -1,16 +1,12 @@
+type DiagType = {
+  filteredResults: any;
+};
+
 import "bootstrap/dist/css/bootstrap.min.css";
-import { useContext } from "react";
-import { fetchContext } from "../dataContext/DataContext";
+
 import styles from "./DiagList.module.css";
 
-export default function DiagList() {
-  let context = useContext(fetchContext);
-  if (!context) {
-    return <div>Table not Found.......</div>;
-  }
-
-  let { filteredData } = context;
-
+export default function DiagList({ filteredResults }: DiagType) {
   return (
     <div className={`${styles.diagListComp} mt-4`}>
       <h4>Diagnostic List</h4>
@@ -24,8 +20,8 @@ export default function DiagList() {
             </tr>
           </thead>
           <tbody>
-            {filteredData &&
-              filteredData[0].diagnostic_list.map((item: any, index: any) => (
+            {filteredResults &&
+              filteredResults.diagnostic_list.map((item: any, index: any) => (
                 <tr key={index}>
                   <td>{item.name}</td>
                   <td>{item.description}</td>
